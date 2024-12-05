@@ -83,5 +83,10 @@ module.exports = {
   devServer: {
     static: "./dist",
     port: 8080,
+    headers: {
+      "Access-Control-Allow-Origin": "*",
+      "Access-Control-Allow-Headers": "*",
+      "Access-Control-Allow-Methods": "*",
+    },
   },
 };
