@@ -47,4 +47,4 @@ This is a Travel Planner app built with Webpack, Express, and Vanilla JavaScript
 
 ## Evidences
 
-![Output](https://github.com/nguyenthien0110/Front_end_pr5_travel_app_page/blob/main/img/evidence.png)
+![Output](https://github.com/nguyenthien0110/Front_end_pr5_travel_app_page/blob/main/img/evidenc_v2.png)

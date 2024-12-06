@@ -16,17 +16,23 @@ export const handleSubmit = async () => {
   `;
 
   try {
-    const geoData = await fetch(
-      `${geonamesBaseURL}${location}&username=${geonamesApiKey}`
-    ).then((res) => res.json());
+    const geoData = await fetch("/geonames", {
+      method: "POST",
+      Headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ location }),
+    }).then((res) => res.json());
 
-    const weatherData = await fetch(
-      `${weatherbitBaseURL}?key=${weatherbitApiKey}&city=${location}&start_date=${departureDate}`
-    ).then((res) => res.json());
+    const weatherData = await fetch("/weather", {
+      method: "POST",
+      Headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ city: location, data: departureDate }),
+    }).then((res) => res.json());
 
-    const pixabayData = await fetch(
-      `${pixabayBaseURL}?key=${pixabayApiKey}&q=${location}&image_type=photo`
-    ).then((res) => res.json());
+    const pixabayData = await fetch("/pixabay", {
+      method: "POST",
+      Headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ query: location }),
+    }).then((res) => res.json());
 
     updateUI(geoData, weatherData, pixabayData, departureDate);
   } catch (error) {
